@@ -1,7 +1,7 @@
 .about-hero {
   max-width: 880px;
   margin: 0 auto;
-  padding: calc(var(--header-height) + var(--space-5xl)) var(--page-gutter) var(--space-5xl);
+  padding: calc(var(--header-height) + var(--space-2xl)) var(--page-gutter) var(--space-2xl);
   text-align: center;
 }
 
@@ -10,9 +10,9 @@
 }
 
 h1 {
-  margin: var(--space-xl) 0;
+  margin: var(--space-md) 0 var(--space-lg);
   color: var(--color-primary);
-  font-size: clamp(3rem, 5vw, 5rem);
+  font-size: clamp(2.8rem, 4.8vw, 4.6rem);
 }
 
 h1 em {
@@ -25,16 +25,26 @@ h1 em {
   font-size: var(--font-size-lg);
 }
 
+.about-hero p {
+  margin: 0 auto;
+  max-width: 38ch;
+}
+
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: var(--space-4xl);
+  align-items: start;
+  gap: var(--space-2xl);
+}
+
+.about-content {
+  padding-top: var(--space-sm);
+  padding-bottom: var(--space-3xl);
 }
 
 .about-visual {
   position: relative;
-  min-height: 520px;
+  min-height: 440px;
   overflow: hidden;
   border-radius: var(--radius-lg);
   background:
@@ -56,16 +66,20 @@ h1 em {
 }
 
 .about-copy h2 {
-  margin: 0 0 var(--space-md);
+  margin: 0 0 var(--space-sm);
   color: var(--color-primary);
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-size: clamp(2rem, 3.6vw, 3rem);
+}
+
+.about-copy p {
+  margin: 0 0 var(--space-md);
 }
 
 .stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-xl);
-  margin-top: var(--space-2xl);
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
 }
 
 .stat strong {
@@ -85,7 +99,7 @@ h1 em {
 
 .about-cta {
   max-width: none;
-  padding: var(--space-5xl) var(--page-gutter);
+  padding: var(--space-4xl) var(--page-gutter);
   background: linear-gradient(140deg, var(--color-primary) 0%, var(--color-primary-deep) 100%);
   color: var(--color-pink-light);
   text-align: center;
@@ -113,6 +127,15 @@ h1 em {
   }
 
   .about-visual {
-    min-height: 380px;
+    min-height: 340px;
+  }
+
+  .about-hero {
+    padding-top: calc(var(--header-height) + var(--space-xl));
+    padding-bottom: var(--space-xl);
+  }
+
+  .about-content {
+    padding-top: 0;
   }
 }

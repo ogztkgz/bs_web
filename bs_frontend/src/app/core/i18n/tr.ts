@@ -141,7 +141,7 @@ export const tr = {
     atelierLabel: 'Atölye',
     atelier: 'Çiğli/ İzmir',
     emailLabel: 'E-posta',
-    email: 'merhaba@velour.example',
+    email: 'destek@beautysecret.com',
     phoneLabel: 'Telefon',
     phone: '+90 (212) 000 00 00',
     hoursLabel: 'Saatler',
