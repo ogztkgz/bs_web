@@ -1,0 +1,28 @@
+main {
+  min-height: 100vh;
+}
+
+.toast {
+  position: fixed;
+  z-index: var(--z-toast);
+  bottom: var(--space-xl);
+  left: 50%;
+  max-width: min(90vw, 520px);
+  padding: 14px 28px;
+  transform: translate(-50%, 80px);
+  transition:
+    transform var(--duration-base),
+    opacity var(--duration-base);
+  border-radius: var(--radius-pill);
+  background: var(--color-primary);
+  color: var(--color-pink-light);
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.08em;
+  opacity: 0;
+  text-align: center;
+}
+
+.toast.show {
+  transform: translate(-50%, 0);
+  opacity: 1;
+}

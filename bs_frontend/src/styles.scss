@@ -1,0 +1,212 @@
+:root {
+  --color-primary: #7b1e3a;
+  --color-primary-dark: #4e1024;
+  --color-primary-deep: #330817;
+  --color-pink: #f2d6da;
+  --color-pink-light: #faedef;
+  --color-pink-medium: #e8b9c1;
+  --color-gold: #c9a24b;
+  --color-surface: #fdf8f6;
+  --color-muted: #a4808b;
+  --color-text-soft: #6d4a54;
+
+  --font-family-base: 'Jost', sans-serif;
+  --font-family-serif: 'Cormorant Garamond', serif;
+
+  --font-size-xs: 0.72rem;
+  --font-size-sm: 0.82rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.08rem;
+  --font-size-xl: 1.35rem;
+  --font-size-2xl: 1.7rem;
+  --font-size-3xl: 2.2rem;
+  --font-size-4xl: 2.8rem;
+
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+
+  --letter-nav: 0.16em;
+  --letter-wide: 0.22em;
+  --letter-extra: 0.4em;
+  --letter-brand: 0.18em;
+
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 40px;
+  --space-3xl: 56px;
+  --space-4xl: 72px;
+  --space-5xl: 96px;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 16px;
+  --radius-pill: 999px;
+
+  --shadow-soft: 0 30px 70px -35px rgba(78, 16, 36, 0.35);
+  --shadow-hero: 0 40px 90px -30px rgba(78, 16, 36, 0.5);
+
+  --duration-base: 0.35s;
+  --duration-slow: 0.7s;
+
+  --header-height: 76px;
+  --container-max: 1400px;
+  --page-gutter: clamp(24px, 5vw, 80px);
+
+  --z-header: 100;
+  --z-drawer-backdrop: 200;
+  --z-drawer: 201;
+  --z-toast: 300;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--color-surface);
+  color: var(--color-primary-dark);
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-light);
+  line-height: 1.6;
+}
+
+body,
+button,
+input,
+textarea {
+  font-family: var(--font-family-base);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-family-serif);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.14;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+::selection {
+  background: var(--color-primary);
+  color: var(--color-pink);
+}
+
+.section,
+section {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-4xl) var(--page-gutter);
+}
+
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-3xl);
+}
+
+.section-head h2 {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+}
+
+.section-head p {
+  max-width: 44ch;
+  margin: 0;
+  color: var(--color-muted);
+  font-size: var(--font-size-lg);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-2xl);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  min-height: 56px;
+  padding: 16px 38px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-wide);
+  line-height: 1;
+  text-transform: uppercase;
+  transition:
+    background var(--duration-base),
+    border-color var(--duration-base),
+    color var(--duration-base);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-pink-light);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+}
+
+.btn-ghost {
+  border-color: var(--color-primary);
+  background: transparent;
+  color: var(--color-primary);
+}
+
+.btn-ghost:hover {
+  border-color: var(--color-pink);
+  background: var(--color-pink);
+}
+
+@media (max-width: 760px) {
+  :root {
+    --header-height: 70px;
+  }
+
+  .section-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

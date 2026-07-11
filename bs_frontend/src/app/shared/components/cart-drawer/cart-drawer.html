@@ -1,0 +1,47 @@
+<button class="drawer-backdrop" type="button" [class.open]="ui.isCartOpen()" (click)="ui.toggleCart(false)"></button>
+
+<aside class="drawer" [class.open]="ui.isCartOpen()">
+  <div class="drawer-head">
+    <h3>{{ 'cart.title' | t }}</h3>
+    <button type="button" class="drawer-close" [attr.aria-label]="'common.close' | t" (click)="ui.toggleCart(false)">×</button>
+  </div>
+
+  <div class="drawer-items">
+    @if (cart.items().length === 0) {
+      <div class="empty-cart">
+        {{ 'cart.empty' | t }}<br />
+        {{ 'cart.emptySecond' | t }}
+      </div>
+    } @else {
+      @for (item of cart.items(); track item.product.id + item.size; let index = $index) {
+        <article class="cart-item">
+          <div class="cart-thumb">
+            <app-product-visual [gradient]="item.product.gradient" />
+          </div>
+          <div class="cart-copy">
+            <h4>{{ item.product.nameKey | t }}</h4>
+            <div class="meta">
+              {{ 'cart.size' | t }}: {{ item.size }} · {{ format.money(item.product.price) }}
+            </div>
+            <div class="row">
+              <div class="qty">
+                <button type="button" (click)="cart.changeQuantity(index, -1)">−</button>
+                <span>{{ item.quantity }}</span>
+                <button type="button" (click)="cart.changeQuantity(index, 1)">+</button>
+              </div>
+              <button class="remove" type="button" (click)="cart.remove(index)">{{ 'common.remove' | t }}</button>
+            </div>
+          </div>
+        </article>
+      }
+    }
+  </div>
+
+  <div class="drawer-foot">
+    <div class="total-row">
+      <span>{{ 'common.total' | t }}</span>
+      <span>{{ format.money(cart.total()) }}</span>
+    </div>
+    <button class="btn btn-primary full" type="button" (click)="checkout()">{{ 'common.checkout' | t }}</button>
+  </div>
+</aside>

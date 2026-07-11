@@ -1,0 +1,35 @@
+<footer>
+  <div class="foot-grid">
+    <div>
+      <a class="logo" routerLink="/">{{ 'brand.first' | t }} <em>{{ 'brand.second' | t }}</em></a>
+      <p>{{ 'footer.text' | t }}</p>
+    </div>
+
+    <div>
+      <h4>{{ 'footer.discover' | t }}</h4>
+      <a routerLink="/koleksiyon">{{ 'footer.allCollection' | t }}</a>
+      <a routerLink="/koleksiyon" [queryParams]="{ seri: 'Gece' }">{{ 'collections.nightTitle' | t }}</a>
+      <a routerLink="/koleksiyon" [queryParams]="{ seri: 'Atlas' }">{{ 'collections.atlasTitle' | t }}</a>
+      <a routerLink="/koleksiyon" [queryParams]="{ seri: 'Rosa' }">{{ 'collections.rosaTitle' | t }}</a>
+    </div>
+
+    <div>
+      <h4>{{ 'footer.brand' | t }}</h4>
+      <a routerLink="/hikayemiz">{{ 'nav.story' | t }}</a>
+      <a routerLink="/iletisim">{{ 'nav.contact' | t }}</a>
+      <button type="button" (click)="showToast('toast.sizeGuideSoon')">{{ 'footer.sizeGuide' | t }}</button>
+    </div>
+
+    <div>
+      <h4>{{ 'footer.support' | t }}</h4>
+      <button type="button" (click)="showToast('toast.shippingInfo')">{{ 'footer.shipping' | t }}</button>
+      <button type="button" (click)="showToast('toast.packageInfo')">{{ 'footer.privatePackaging' | t }}</button>
+      <a routerLink="/iletisim">{{ 'footer.faq' | t }}</a>
+    </div>
+  </div>
+
+  <div class="foot-bottom">
+    <span>{{ 'footer.copyright' | t }}</span>
+    <span>{{ 'footer.location' | t }}</span>
+  </div>
+</footer>

@@ -1,0 +1,14 @@
+<a class="product-card" [routerLink]="['/urun', product().id]">
+  <div class="product-image">
+    <app-product-visual [gradient]="product().gradient" />
+    @if (product().tagKey) {
+      <span class="tag">{{ product().tagKey! | t }}</span>
+    }
+    <span class="quick">{{ 'common.inspect' | t }}</span>
+  </div>
+  <div class="product-info">
+    <div class="category">{{ 'products.series' | t: { category: product().category } }}</div>
+    <h3>{{ product().nameKey | t }}</h3>
+    <div class="price">{{ format.money(product().price) }}</div>
+  </div>
+</a>

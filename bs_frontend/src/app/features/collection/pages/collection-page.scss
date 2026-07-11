@@ -1,0 +1,44 @@
+.collection-page {
+  padding-top: calc(var(--header-height) + var(--space-4xl));
+}
+
+.section-head h1 {
+  margin: 0;
+  color: var(--color-primary);
+  font-family: var(--font-family-serif);
+  font-size: clamp(3rem, 5vw, 4.2rem);
+  font-weight: 500;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-bottom: var(--space-3xl);
+}
+
+.filter-bar button {
+  min-width: 112px;
+  padding: 12px 24px;
+  border: 1px solid var(--color-pink-medium);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-primary-dark);
+  cursor: pointer;
+  font: inherit;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  letter-spacing: var(--letter-nav);
+  text-transform: uppercase;
+  transition:
+    background var(--duration-base),
+    color var(--duration-base),
+    border-color var(--duration-base);
+}
+
+.filter-bar button.active,
+.filter-bar button:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-pink-light);
+}

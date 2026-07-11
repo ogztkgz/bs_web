@@ -1,0 +1,46 @@
+@if (product(); as selectedProduct) {
+  <section class="detail">
+    <div>
+      <a class="back-link" routerLink="/koleksiyon">{{ 'common.backToCollection' | t }}</a>
+      <div class="detail-img">
+        <app-product-visual [gradient]="selectedProduct.gradient" [monogram]="true" />
+      </div>
+    </div>
+
+    <div class="detail-info">
+      <div class="category">{{ 'products.series' | t: { category: selectedProduct.category } }}</div>
+      <h1>{{ selectedProduct.nameKey | t }}</h1>
+      <div class="price">{{ format.money(selectedProduct.price) }}</div>
+      <p>{{ selectedProduct.descriptionKey | t }}</p>
+
+      <span class="opt-label">{{ 'common.selectSize' | t }}</span>
+      <div class="sizes">
+        @for (size of productService.sizes; track size) {
+          <button type="button" [class.selected]="selectedSize() === size" (click)="selectedSize.set(size)">{{ size }}</button>
+        }
+      </div>
+
+      <button class="btn btn-primary" type="button" (click)="addToCart()">
+        {{ 'common.addToCart' | t }} - {{ format.money(selectedProduct.price) }}
+      </button>
+
+      <div class="detail-notes">
+        <div><b>{{ 'detail.fabricLabel' | t }}</b><span>{{ 'detail.fabricText' | t }}</span></div>
+        <div><b>{{ 'detail.careLabel' | t }}</b><span>{{ 'detail.careText' | t }}</span></div>
+        <div><b>{{ 'detail.deliveryLabel' | t }}</b><span>{{ 'detail.deliveryText' | t }}</span></div>
+        <div><b>{{ 'detail.returnLabel' | t }}</b><span>{{ 'detail.returnText' | t }}</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>{{ 'detail.relatedTitle' | t }}</h2>
+    </div>
+    <div class="product-grid">
+      @for (item of related(); track item.id) {
+        <app-product-card [product]="item" />
+      }
+    </div>
+  </section>
+}

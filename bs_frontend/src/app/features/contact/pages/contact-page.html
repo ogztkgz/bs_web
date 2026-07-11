@@ -1,0 +1,24 @@
+<section class="contact-wrap">
+  <div class="contact-info">
+    <h1>{{ 'contact.title' | t }}</h1>
+    <p>{{ 'contact.intro' | t }}</p>
+
+    <div class="contact-line"><b>{{ 'contact.atelierLabel' | t }}</b><span>{{ 'contact.atelier' | t }}</span></div>
+    <div class="contact-line"><b>{{ 'contact.emailLabel' | t }}</b><span>{{ 'contact.email' | t }}</span></div>
+    <div class="contact-line"><b>{{ 'contact.phoneLabel' | t }}</b><span>{{ 'contact.phone' | t }}</span></div>
+    <div class="contact-line"><b>{{ 'contact.hoursLabel' | t }}</b><span>{{ 'contact.hours' | t }}</span></div>
+  </div>
+
+  <form class="contact-form" [formGroup]="form" (ngSubmit)="send()">
+    <label for="name">{{ 'contact.nameLabel' | t }}</label>
+    <input id="name" type="text" formControlName="name" [placeholder]="'contact.namePlaceholder' | t" />
+
+    <label for="email">{{ 'contact.emailLabel' | t }}</label>
+    <input id="email" type="email" formControlName="email" [placeholder]="'contact.emailPlaceholder' | t" />
+
+    <label for="message">{{ 'contact.messageLabel' | t }}</label>
+    <textarea id="message" formControlName="message" [placeholder]="'contact.messagePlaceholder' | t"></textarea>
+
+    <button class="btn btn-primary full" type="submit">{{ 'common.send' | t }}</button>
+  </form>
+</section>

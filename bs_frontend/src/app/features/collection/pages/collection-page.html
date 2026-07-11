@@ -1,0 +1,20 @@
+<section class="collection-page">
+  <div class="section-head">
+    <h1>{{ 'collection.title' | t }}</h1>
+    <p>{{ 'collection.intro' | t }}</p>
+  </div>
+
+  <div class="filter-bar">
+    @for (filter of productService.filters; track filter) {
+      <button type="button" [class.active]="activeFilter() === filter" (click)="setFilter(filter)">
+        {{ filterKey(filter) | t }}
+      </button>
+    }
+  </div>
+
+  <div class="product-grid">
+    @for (product of products(); track product.id) {
+      <app-product-card [product]="product" />
+    }
+  </div>
+</section>

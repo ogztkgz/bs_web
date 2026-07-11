@@ -1,0 +1,6 @@
+@bs_backend_HostAddress = http://localhost:0
+
+GET {{bs_backend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

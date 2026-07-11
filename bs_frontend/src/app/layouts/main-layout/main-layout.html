@@ -1,0 +1,8 @@
+<app-header />
+<main>
+  <router-outlet />
+</main>
+<app-footer />
+<app-cart-drawer />
+
+<div class="toast" [class.show]="ui.toastMessage()">{{ ui.toastMessage() }}</div>

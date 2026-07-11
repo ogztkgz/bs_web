@@ -1,0 +1,95 @@
+<section class="hero">
+  <div class="hero-text">
+    <div class="eyebrow">{{ 'home.eyebrow' | t }}</div>
+    <h1>
+      {{ 'home.titleLine1' | t }}<br />
+      <em>{{ 'home.titleLine2' | t }}</em>
+    </h1>
+    <p>{{ 'home.intro' | t }}</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" routerLink="/koleksiyon">{{ 'home.discover' | t }}</a>
+      <a class="btn btn-ghost" routerLink="/hikayemiz">{{ 'nav.story' | t }}</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="silk">
+      <span>BS</span>
+    </div>
+    <div class="hero-badge">
+      <strong>{{ 'home.silkTitle' | t }}</strong>
+      <span>{{ 'home.silkSubtitle' | t }}</span>
+    </div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track" aria-hidden="true">
+    @for (copy of [0, 1]; track copy) {
+      <div class="marquee-set">
+        @for (item of ['marquee.lace', 'marquee.silk', 'marquee.atelier', 'marquee.return', 'marquee.packaging', 'marquee.lace', 'marquee.silk']; track item + $index) {
+          <span>{{ item | t }}</span><b>◆</b>
+        }
+      </div>
+    }
+  </div>
+</div>
+
+<section class="section">
+  <div class="section-head">
+    <h2>{{ 'home.collectionsTitle' | t }}</h2>
+    <p>{{ 'home.collectionsText' | t }}</p>
+  </div>
+  <div class="collection-grid">
+    @for (collection of productService.collections; track collection.category) {
+      <a class="collection-card" routerLink="/koleksiyon" [queryParams]="{ seri: collection.category }">
+        <div class="collection-bg" [class]="collection.visualClass"></div>
+        <div class="collection-overlay">
+          <span>{{ collection.countKey | t }}</span>
+          <h3>{{ collection.titleKey | t }}</h3>
+        </div>
+      </a>
+    }
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <h2>{{ 'home.featuredTitle' | t }}</h2>
+    <a class="btn btn-ghost compact" routerLink="/koleksiyon">{{ 'common.viewAll' | t }}</a>
+  </div>
+  <div class="product-grid">
+    @for (product of productService.getFeatured(); track product.id) {
+      <app-product-card [product]="product" />
+    }
+  </div>
+</section>
+
+<section class="section">
+  <div class="values">
+    <article class="value">
+      <div class="num">{{ 'values.firstNo' | t }}</div>
+      <h3>{{ 'values.firstTitle' | t }}</h3>
+      <p>{{ 'values.firstText' | t }}</p>
+    </article>
+    <article class="value">
+      <div class="num">{{ 'values.secondNo' | t }}</div>
+      <h3>{{ 'values.secondTitle' | t }}</h3>
+      <p>{{ 'values.secondText' | t }}</p>
+    </article>
+    <article class="value">
+      <div class="num">{{ 'values.thirdNo' | t }}</div>
+      <h3>{{ 'values.thirdTitle' | t }}</h3>
+      <p>{{ 'values.thirdText' | t }}</p>
+    </article>
+  </div>
+</section>
+
+<section class="newsletter">
+  <h2>{{ 'home.newsletterTitle' | t }}</h2>
+  <p>{{ 'home.newsletterText' | t }}</p>
+  <form class="news-form" (ngSubmit)="subscribe()">
+    <input type="email" [formControl]="newsletterEmail" [placeholder]="'home.newsletterPlaceholder' | t" />
+    <button type="submit">{{ 'common.join' | t }}</button>
+  </form>
+</section>

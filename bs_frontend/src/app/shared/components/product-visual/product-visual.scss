@@ -1,0 +1,31 @@
+.visual {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    115deg,
+    transparent 0,
+    transparent 26px,
+    rgba(255, 255, 255, 0.045) 26px,
+    rgba(255, 255, 255, 0.045) 28px
+  );
+}
+
+span {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(242, 214, 218, 0.16);
+  font-family: var(--font-family-serif);
+  font-size: clamp(5rem, 12vw, 12rem);
+  font-style: italic;
+  user-select: none;
+}

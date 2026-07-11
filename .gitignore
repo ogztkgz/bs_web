@@ -1,0 +1,8 @@
+.codex-home/
+
+bs_backend/bin/
+bs_backend/obj/
+
+bs_frontend/node_modules/
+bs_frontend/dist/
+.angular/

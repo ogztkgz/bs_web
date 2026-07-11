@@ -1,0 +1,27 @@
+<header [class.scrolled]="scrolled()">
+  <div class="header-inner">
+    <a class="logo" routerLink="/" (click)="closeMenu()">
+      {{ 'brand.first' | t }} <em>{{ 'brand.second' | t }}</em>
+    </a>
+
+    <nav [class.open]="menuOpen()">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">
+        {{ 'nav.home' | t }}
+      </a>
+      <a routerLink="/koleksiyon" routerLinkActive="active" (click)="closeMenu()">{{ 'nav.collection' | t }}</a>
+      <a routerLink="/hikayemiz" routerLinkActive="active" (click)="closeMenu()">{{ 'nav.story' | t }}</a>
+      <a routerLink="/iletisim" routerLinkActive="active" (click)="closeMenu()">{{ 'nav.contact' | t }}</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="cart-btn" type="button" (click)="openCart()">
+        {{ 'nav.cart' | t }} <span>{{ cart.count() }}</span>
+      </button>
+      <button class="menu-toggle" type="button" [attr.aria-label]="'nav.home' | t" (click)="menuOpen.set(!menuOpen())">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
